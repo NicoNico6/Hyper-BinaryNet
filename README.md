@@ -1,6 +1,18 @@
-# Hyper-BNN
-This is the code for paper "Capacity Matters:  Designing Binarized Neural Network via Enhanced Infornation Flow"
+# HyperNetworks
+PyTorch implementation of [HyperNetworks](https://arxiv.org/abs/1609.09106) (Ha et al., ICLR 2017) for CIFAR-10 dataset.
 
-The binary neural networks (BNNs) are getting increasing attention from researchers, because of its advantages of memory and energy consumption. However, BNNs also suffers from serious accuracy dropping problem, compared with its 32-bit counterparts. To alievate this problem, we improve binary neural network from the aspects of enhancing representative capacity. Specifically, three novel techniques are proposed in this paper: 1) Considering the capacity-limitation problem in backward propagation, we propose a novel binary convolution module, named HyperConv, which exploits the capacity of auxiliary neural networks during training,  2) Considering the slow cobnvergence speed in BNNs, we rethink the gradient accumulation mechanism and exploit hyper accumulation technique. By accumulating gradients in multiple variables rather than one as before, the backward information flow  for each weight are increased and this escapes the weights of BNNs from gradient bottleneck problem during training; 3) Considering the ill-posed optimization problem, a novel gradient estimation warmup strategy, dubbed STE-Warmup, is developed. This strategy prevents BNNs from the unstable optimization process by progressively transferring neural network from 32-bit to 1-bit. Evaluations with variant architectures are conducted on three public datasets: CIFAR-10/100 and ImageNet. Compared with state-of-the-art BNNs, Hyper-BinaryNet shows faster convergence speed and outperforms existing BNNs by a large margin.  
+(Please cite this repository if you use any of the code/diagrams here, Thanks! 😊😊)
 
-The code is being cleaned and will be uploaded soon.
+## How to Run
+
+```commandline
+python train.py
+```
+
+## Working
+
+![model_diagram](https://raw.githubusercontent.com/g1910/HyperNetworks/master/diagrams/model_diagram.png)
+
+![model_diagram_simplified](https://raw.githubusercontent.com/g1910/HyperNetworks/master/diagrams/model_simplified.png)
+
+![forward_backward_pass](https://raw.githubusercontent.com/g1910/HyperNetworks/master/diagrams/forward_backward_pass.png)
